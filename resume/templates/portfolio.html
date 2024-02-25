@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{%block title %} Portfolio {% endblock %}
+{% block content %}
+
+<div class="card-columns">
+    {% for proj in project %}
+    {% include "cards.html" with title=proj.title image=proj.image only %}
+    {% endfor %}
+</div>
+
+{% endblock %}
