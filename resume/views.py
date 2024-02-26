@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import projects
+from .models import projects, profile, summary, schools
 
 # Create your views here.
 
@@ -9,8 +9,10 @@ def portfolio(request):
 
 
 def about(request):
-    return render(request, "about.html")
+    prof = profile.objects.all()
+    summ = summary.objects.all()
+    schol = schools.objects.all()
+    return render(request, "about.html",{"profile":prof , "summary" : summ, "school":schol})
 
-def contact(request):
-    return render(request, "contact.html")
+
 

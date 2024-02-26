@@ -2,21 +2,34 @@
 {%block title %} About {% endblock %}
 {% block content %}
 <div class="row">
-<div name="contactinfo" class="shadow-sm p-3 mb-5 bg-white rounded" >
-    <h1>Helia Mozaffari</h1>
+<div name="contactinfo" class="shadow-sm p-3 mb-5 bg-white rounded"  style=" width: 30%;" >
+    <div class="text-center p-3">
+    {% for prof in profile %}
+    <img  src={{prof.image}} alt="Card image cap" style="max-width: 250px; max-height: 250px;">
+    <h2>{{ prof.name }}</h2>
+    <p>{{prof.summary}}</p>
+    {% endfor %}
+</div>
 </div>
 <div class="col">
 <div name="summary" class="shadow-sm p-3 mb-5 bg-white rounded" >
-    <h1>Summary</h1>
+    {% for summ in summary %}
+    <h3>summary</h3>
+    <p>{{summ.summary}}</p>
+    {% endfor %}
 </div>
 <div name="experience" class="shadow-sm p-3 mb-5 bg-white rounded" >
     <h1>Experience</h1>
 </div>
 <div name="education" class="shadow-sm p-3 mb-5 bg-white rounded" >
-    <h1>Education</h1>
-    <h1>Education</h1>
-    <h1>Education</h1>
-    <h1>Education</h1>
+    <h3>Education</h3>
+    <br>
+    {% for schol in school %}
+    <h5>{{schol.school_program}}</h5>
+    <p>{{schol.school_name}}({{schol.school_startyear}}-{{schol.school_endyear}})</p>
+   
+    <br>
+    {% endfor %}
 </div>
 </div>
 </div>

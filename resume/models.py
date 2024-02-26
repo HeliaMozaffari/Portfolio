@@ -9,15 +9,16 @@ class projects(models.Model):
     image_link =models.CharField(max_length=200, default='SOME STRING')
 
 class profile(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50 , default='SOME STRING')
     image =models.CharField(max_length=200, default='SOME STRING')
-    summary =models.CharField(max_length=200)
+    summary =models.CharField(max_length=200 , default='SOME STRING')
 
 class summary(models.Model):
     summary= models.CharField(max_length=200)
 
 class schools(models.Model):
     school_name = models.CharField(max_length = 200)
+    school_program = models.CharField(max_length = 200  , default='SOME STRING')
     school_startyear= models.CharField(max_length= 4)
     school_endyear= models.CharField(max_length= 4)
 
@@ -28,6 +29,7 @@ class courses(models.Model):
 
 class companies(models.Model):
     company_name =  models.CharField(max_length = 200)
+    comapny_position = models.CharField(max_length = 200  , default='SOME STRING')
     company_startyear = models.CharField(max_length = 4)
     company_endyear = models.CharField(max_length = 4)
     Description = models.CharField(max_length = 200)
