@@ -14,10 +14,11 @@ class profile(models.Model):
     summary =models.CharField(max_length=200 , default='SOME STRING')
 
 class summary(models.Model):
-    summary= models.CharField(max_length=200)
+    summary= models.CharField(max_length=2000)
 
 class schools(models.Model):
     school_name = models.CharField(max_length = 200)
+    school_description = models.CharField(max_length = 1000 , default='SOME STRING')
     school_program = models.CharField(max_length = 200  , default='SOME STRING')
     school_startyear= models.CharField(max_length= 4)
     school_endyear= models.CharField(max_length= 4)
@@ -32,7 +33,7 @@ class companies(models.Model):
     comapny_position = models.CharField(max_length = 200  , default='SOME STRING')
     company_startyear = models.CharField(max_length = 4)
     company_endyear = models.CharField(max_length = 4)
-    Description = models.CharField(max_length = 200)
+    Description = models.CharField(max_length = 1000)
 
 class skill(models.Model):
     skill =  models.CharField(max_length = 200  , default='SOME STRING')

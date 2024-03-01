@@ -31,28 +31,33 @@
           {{s.skill_description}}
         </div>
       </div>
-    {% endfor %}
-
-
-    
+    {% endfor %}  
 </div>
 </div>
 <div class="col">
     <br>
 <div name="summary" >
-    {% for summ in summary %}
     <h3>summary</h3>
+    {% for summ in summary %}
     <p>{{summ.summary}}</p>
     {% endfor %}
 </div>
+<br>
 <div name="experience"  >
-    <h1>Experience</h1>
+    <h3>Experience</h3>
+    {% for c in company %}
+    <h5>{{c.comapny_position}}</h5>
+    <h6>{{c.company_name }} ({{c.company_startyear}}-{{c.company_endyear}})</h6>
+    <p>{{c.Description}}</p>
+    {% endfor %}
 </div>
+<br>
 <div name="education" >
     <h3>Education</h3>
     {% for schol in school %}
     <h5>{{schol.school_program}}</h5>
-    <p>{{schol.school_name}}({{schol.school_startyear}}-{{schol.school_endyear}})</p>
+    <h6>{{schol.school_name}}({{schol.school_startyear}}-{{schol.school_endyear}})</h6>
+    <p>{{schol.school_description}}</p>
     {% endfor %}
 </div>
 </div>
