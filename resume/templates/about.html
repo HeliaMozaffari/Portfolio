@@ -2,33 +2,57 @@
 {%block title %} About {% endblock %}
 {% block content %}
 <div class="row">
-<div name="contactinfo" class="shadow-sm p-3 mb-5 bg-white rounded"  style=" width: 30%;" >
+<div name="contactinfo" class="shadow-sm p-3 mb-5 rounded"  style=" width: 25%;" >
     <div class="text-center p-3">
     {% for prof in profile %}
-    <img  src={{prof.image}} alt="Card image cap" style="max-width: 250px; max-height: 250px;">
-    <h2>{{ prof.name }}</h2>
-    <p>{{prof.summary}}</p>
+        <img  src={{prof.image}} alt="Card image cap" style="max-width: 250px; max-height: 250px;">
+        <h2>{{ prof.name }}</h2>
     {% endfor %}
+<!--gmail-->
+    <i class="fa-solid fa-envelope"></i>
+    <p>heliam8228@gmail.com</p>
+
+<!--phone-->
+    <i class="fa fa-phone"></i>
+    <p>647-234-1499</p>
+
+<!--address-->
+    <i class="fa-solid fa-location-dot"></i>
+    <p>Toronto, ON</p>
+    <br>
+
+    <h3>Skills</h3>
+    {% for s in skill %}
+    <div class="btn-group">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 1%;">
+          {{s.skill}}
+        </button>
+        <div class="dropdown-menu" style="padding: 3%; text-align: center;">
+          {{s.skill_description}}
+        </div>
+      </div>
+    {% endfor %}
+
+
+    
 </div>
 </div>
 <div class="col">
-<div name="summary" class="shadow-sm p-3 mb-5 bg-white rounded" >
+    <br>
+<div name="summary" >
     {% for summ in summary %}
     <h3>summary</h3>
     <p>{{summ.summary}}</p>
     {% endfor %}
 </div>
-<div name="experience" class="shadow-sm p-3 mb-5 bg-white rounded" >
+<div name="experience"  >
     <h1>Experience</h1>
 </div>
-<div name="education" class="shadow-sm p-3 mb-5 bg-white rounded" >
+<div name="education" >
     <h3>Education</h3>
-    <br>
     {% for schol in school %}
     <h5>{{schol.school_program}}</h5>
     <p>{{schol.school_name}}({{schol.school_startyear}}-{{schol.school_endyear}})</p>
-   
-    <br>
     {% endfor %}
 </div>
 </div>

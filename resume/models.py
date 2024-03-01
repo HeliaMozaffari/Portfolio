@@ -34,8 +34,11 @@ class companies(models.Model):
     company_endyear = models.CharField(max_length = 4)
     Description = models.CharField(max_length = 200)
 
-class skills(models.Model):
-     skills =  models.CharField(max_length = 200)
+class skill(models.Model):
+    skill =  models.CharField(max_length = 200  , default='SOME STRING')
+    skill_description =  models.CharField(max_length = 200  , default='SOME STRING')
+    skill_course =  models.CharField(max_length = 200  , default='SOME STRING')
+    skill_position =  models.CharField(max_length = 200  , default='SOME STRING')
 
 
 
