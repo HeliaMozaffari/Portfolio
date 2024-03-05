@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import projects, profile, summary, schools, skill, companies
+from .models import projects, profile, summary, schools, skill, companies, vlogCategory, vlogPost
 
 # Create your views here.
 
@@ -17,4 +17,7 @@ def about(request):
     return render(request, "about.html",{"profile":prof , "summary" : summ, "school":schol, "skill":skills, "company":comp})
 
 
-
+def Vlog(request):
+    vlogC = vlogCategory.objects.all()
+    vlogP = vlogPost.objects.all()
+    return render(request, "Vlog.html",{"vlogPost":vlogP , "vlogCategory" : vlogC})

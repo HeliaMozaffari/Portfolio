@@ -41,9 +41,15 @@ class skill(models.Model):
     skill_course =  models.CharField(max_length = 200  , default='SOME STRING')
     skill_position =  models.CharField(max_length = 200  , default='SOME STRING')
 
+class vlogCategory(models.Model):
+    vlogCategory_title = models.CharField(max_length = 200  , default='SOME STRING')
+    vlogCategory_pic = models.CharField(max_length = 500  , default='SOME STRING')
+    vlogCategory_Description = models.CharField(max_length = 1000  , default='SOME STRING') 
 
-
-
+class vlogPost(models.Model):
+    vlogPost_title =  models.CharField(max_length = 200  , default='SOME STRING')
+    vlogPost_description =  models.CharField(max_length = 1000  , default='SOME STRING')
+    vlogPost_iframe = models.CharField(max_length = 600  , default='SOME STRING')
 
 
 

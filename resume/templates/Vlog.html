@@ -1,0 +1,16 @@
+{% extends "base.html" %} 
+{%block title %} Vlog {% endblock %}
+{% block content %}
+{% for v in vlogCategory %}
+  <h5>{{v.vlogCategory_title}}</h5>
+  <p>{{v.vlogCategory_Description}}</p>
+  {% for vp in vlogPost %}
+  {% if v.vlogCategory_title == vp.vlogPost_title %}
+    {% if vp.vlogPost_iframe != "SOME STRING" %}
+          <p style="padding-left: 5%;">{{vp.vlogPost_description}}</p>
+          <iframe   style="padding-left: 5%; min-width: 700px; min-height: 400px; max-height: 900px; max-width: 900px;" src= {{vp.vlogPost_iframe}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>   
+          {% endif %}    
+    {% endif %}
+  {% endfor %}
+{% endfor %} 
+{% endblock %}
