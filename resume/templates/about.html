@@ -1,69 +1,65 @@
 {% extends "base.html" %} 
-{%block title %} About {% endblock %}
+{%block title %} Resume {% endblock %}
 {% block content %}
 <div class="row">
 <div name="contactinfo" class="shadow-sm p-3 mb-5 rounded"  style=" width: 25%;" >
     <div class="text-center p-3">
     {% for prof in profile %}
-        <img  src={{prof.image}} alt="Card image cap" style="max-width: 250px; max-height: 250px;">
-        <h2>{{ prof.name }}</h2>
+                <img  src={{prof.profile_picture}} alt="Card image cap" style="max-width: 250px; max-height: 250px;">
+                <h2>{{ prof.name }}</h2>
+        <!--gmail-->
+            <i class="fa-solid fa-envelope"></i>
+            <p>{{prof.profile_email}}</p>
+
+        <!--phone-->
+            <i class="fa fa-phone"></i>
+            <p>{{prof.profile_phone}}</p>
+
+        <!--address-->
+            <i class="fa-solid fa-location-dot"></i>
+            <p>{{prof.profile_city}}, {{prof.profile_province}}</p>
+            <br>
     {% endfor %}
-<!--gmail-->
-    <i class="fa-solid fa-envelope"></i>
-    <p>heliam8228@gmail.com</p>
-
-<!--phone-->
-    <i class="fa fa-phone"></i>
-    <p>647-234-1499</p>
-
-<!--address-->
-    <i class="fa-solid fa-location-dot"></i>
-    <p>Toronto, ON</p>
-    <br>
-
     <h3>Skills</h3>
-    {% for s in skill %}
     <div class="btn-group">
         <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 1%;">
-          {{s.skill}}
         </button>
         <div class="dropdown-menu" style="padding: 3%; text-align: center;">
-          {{s.skill_description}}
         </div>
-      </div>
-    {% endfor %}  
+      </div> 
 </div>
 </div>
 <div class="col">
     <br>
-<div name="summary" >
-    <h3>summary</h3>
-    {% for summ in summary %}
-    <p>{{summ.summary}}</p>
+    {% for prof in profile %}
+        <div name="summary" >
+            <h3>Summary</h3>
+            <p>{{prof.profile_summary}}</p>
+        </div>
     {% endfor %}
-</div>
 <br>
-<div name="experience"  >
-    <h3>Experience</h3>
-    {% for c in company %}
-    <h5>{{c.comapny_position}}</h5>
-    <h6>{{c.company_name }} ({{c.company_startyear}}-{{c.company_endyear}})</h6>
-    <p>{{c.Description}}</p>
-    {% endfor %}
-</div>
+    
+        <div name="experience"  >
+            <h3>Experience</h3>
+            {% for expr in experience %}
+                <h5>{{expr.experience_position}}</h5>
+                <h6>{{expr.experience_name}} ({{expr.experience_start}} - {{expr.experience_end}})</h6>
+                <p>{{expr.experience_description}}</p>
+            {% endfor %}
+        </div>
+   
 <br>
 <div name="education" >
     <h3>Education</h3>
-    {% for schol in school %}
-    <h5>{{schol.school_program}}</h5>
-    <h6>{{schol.school_name}}({{schol.school_startyear}}-{{schol.school_endyear}})</h6>
-    <p>{{schol.school_description}}</p>
+    {% for edu in education %}
+        <h5>{{edu.education_schoolprogram}}</h5>
+        <h6>{{edu.education_schoolname}} ({{edu.education_programstart}} - {{edu.education_programend}})</h6>
+        <p>{{edu.education_programdescription}}</p>
     {% endfor %}
+
 </div>
 </div>
 </div>
-
-
-
 {% endblock %}
+
 

@@ -1,20 +1,20 @@
 from django.shortcuts import render, HttpResponse
-from .models import projects, profile, summary, schools, skill, companies, vlogCategory, vlogPost
+from .models import  project, profile, education, course, skill, experience, vlogCategory, vlogPost
 
 # Create your views here.
 
 def portfolio(request):
-    projs = projects.objects.all()
-    return render(request, "portfolio.html", {"project": projs})
+    proj = project.objects.all()
+    return render(request, "portfolio.html",{ "project" : proj})
 
 
 def about(request):
     prof = profile.objects.all()
-    summ = summary.objects.all()
-    schol = schools.objects.all()
-    skills = skill.objects.all()
-    comp = companies.objects.all()
-    return render(request, "about.html",{"profile":prof , "summary" : summ, "school":schol, "skill":skills, "company":comp})
+    edu = education.objects.all()
+    cou = course.objects.all()
+    skil = skill.objects.all()
+    exper = experience.objects.all()
+    return render(request, "about.html",{"education": edu, "profile":prof, "course": cou, "skill":skil, "experience":exper})
 
 
 def Vlog(request):

@@ -6,8 +6,20 @@
     <img class="card-img-top" src={{image}} alt="Card image cap">
   </a>
     <div class="card-body">
-      <h6 class="card-text">{{title}}</h6>
-      <p class="card-text">{{description}}</p>
+      {% if fontA == "1"%}
+        <h5 class="card-text">{{title}} <a><i class="fab fa-github"></i></a></h5>
+      {% endif %}
+      {% if fontA == "2" %}4
+        <h5 class="card-text">{{title}} <a><i class="fab fa-youtube"></i></a></h5>
+      {% endif %}
+      {% if fontA == "3" %}4
+        <h5 class="card-text">{{title}} <a><i class="fa-solid fa-file-lines"></i></a></h5>
+      {% endif %}
+      {% if fontA == "4" %}4
+        <h5 class="card-text">{{title}} <a><i class="fa-solid fa-diagram-project"></i></a></h5>
+      {% endif %}
+      <h6 class="card-text">{{description}}</h6>
+      <p>{{date}}</p>
     </div>
   </div>
 </div>

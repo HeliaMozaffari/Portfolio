@@ -4,7 +4,7 @@
 
 <div class="card-columns">
     {% for proj in project %}
-    {% include "cards.html" with title=proj.title image=proj.image link=proj.image_link description=proj.Description %}
+    {% include "cards.html" with title=proj.project_name date=proj.project_date image=proj.project_picture link=proj.project_link  description=proj.project_description fontA=proj.project_ID %}
     {% endfor %}
 </div>
 

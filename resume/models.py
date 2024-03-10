@@ -1,45 +1,61 @@
 from django.db import models
+import datetime
 
 # Create your models here.
-
-class projects(models.Model):
-    title = models.CharField(max_length=50)
-    Description = models.CharField(max_length=2000)
-    image =models.CharField(max_length=200, default='SOME STRING')
-    image_link =models.CharField(max_length=200, default='SOME STRING')
+class project(models.Model):
+    project_ID = models.CharField(max_length=20, default='Not Stated')
+    project_name = models.CharField(max_length=50, default='Not Stated')
+    project_date = models.DateField(default=datetime.date.today)
+    project_link = models.CharField(max_length=500, default='Not Stated')
+    project_picture = models.CharField(max_length=500, default='Not Stated')
+    project_description = models.CharField(max_length=2000, default='Not Stated')
 
 class profile(models.Model):
-    name = models.CharField(max_length=50 , default='SOME STRING')
-    image =models.CharField(max_length=200, default='SOME STRING')
-    summary =models.CharField(max_length=200 , default='SOME STRING')
+    profile_ID = models.CharField(max_length=4, default='Not Stated')
+    profile_name = models.CharField(max_length=50, default='Not Stated')
+    profile_email = models.CharField(max_length=50, default='Not Stated')
+    profile_phone = models.CharField(max_length=20, default='Not Stated')
+    profile_city = models.CharField(max_length=20, default='Not Stated')
+    profile_province = models.CharField(max_length=2, default='Not Stated')
+    profile_picture = models.CharField(max_length=500, default='Not Stated')
+    profile_status = models.CharField(max_length=1, default='0')
+    profile_bio = models.CharField(max_length=4000, default='Not Stated')
+    profile_summary = models.CharField(max_length=4000, default='Not Stated')
 
-class summary(models.Model):
-    summary= models.CharField(max_length=2000)
+class education(models.Model):
+    education_ID = models.CharField(max_length=4, default='Not Stated')
+    profile_ID = models.CharField(max_length=4, default='Not Stated')
+    education_schoolname = models.CharField(max_length=50, default='Not Stated')
+    education_schoolprogram = models.CharField(max_length=50, default='Not Stated')
+    education_schoolcity = models.CharField(max_length=50, default='Not Stated')
+    education_schoolprovince = models.CharField(max_length=2, default='Not Stated')
+    education_programstart = models.DateField(default=datetime.date.today)
+    education_programend = models.DateField(default=datetime.date.today)
+    education_programdescription =  models.CharField(max_length=2000, default='Not Stated')
 
-class schools(models.Model):
-    school_name = models.CharField(max_length = 200)
-    school_description = models.CharField(max_length = 1000 , default='SOME STRING')
-    school_program = models.CharField(max_length = 200  , default='SOME STRING')
-    school_startyear= models.CharField(max_length= 4)
-    school_endyear= models.CharField(max_length= 4)
-
-class courses(models.Model):
-    course_name = models.CharField(max_length = 200)
-    course_description = models.CharField(max_length = 200)
-    course_school = models.CharField(max_length = 200)
-
-class companies(models.Model):
-    company_name =  models.CharField(max_length = 200)
-    comapny_position = models.CharField(max_length = 200  , default='SOME STRING')
-    company_startyear = models.CharField(max_length = 4)
-    company_endyear = models.CharField(max_length = 4)
-    Description = models.CharField(max_length = 1000)
+class course(models.Model):
+    course_ID = models.CharField(max_length=4, default='Not Stated')
+    education_ID = models.CharField(max_length=4, default='Not Stated')
+    course_name = models.CharField(max_length=4, default='Not Stated')
+    course_description = models.CharField(max_length=4000, default='Not Stated')
 
 class skill(models.Model):
-    skill =  models.CharField(max_length = 200  , default='SOME STRING')
-    skill_description =  models.CharField(max_length = 200  , default='SOME STRING')
-    skill_course =  models.CharField(max_length = 200  , default='SOME STRING')
-    skill_position =  models.CharField(max_length = 200  , default='SOME STRING')
+    skill_ID = models.CharField(max_length=4, default='Not Stated')
+    project_ID = models.CharField(max_length=4, default='Not Stated')
+    course_ID = models.CharField(max_length=4, default='Not Stated')
+    skill_name = models.CharField(max_length=50, default='Not Stated')
+    skill_desccription = models.CharField(max_length=2000, default='Not Stated')
+
+class experience(models.Model):
+    experience_ID =  models.CharField(max_length=4, default='Not Stated')
+    profile_ID =  models.CharField(max_length=4, default='Not Stated')
+    experience_name =  models.CharField(max_length=50, default='Not Stated')
+    experience_position =  models.CharField(max_length=50, default='Not Stated')
+    experience_city =  models.CharField(max_length=50, default='Not Stated')
+    experience_province =  models.CharField(max_length=2, default='Not Stated')
+    experience_start =  models.DateField(default=datetime.date.today)
+    experience_end = models.DateField(default=datetime.date.today)
+    experience_description = models.CharField(max_length=4000, default='Not Stated')
 
 class vlogCategory(models.Model):
     vlogCategory_title = models.CharField(max_length = 200  , default='SOME STRING')
